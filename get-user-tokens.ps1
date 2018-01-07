@@ -16,14 +16,7 @@ try{
     exit
 }
 
-# -Method Post -Body $JSON -ContentType "application/json"
-
-# If you use Powershell 3, I know there have been some issues with Invoke-RestMethod, but you should be able to use Invoke-WebRequest as a replacement:
-
-# $response = Invoke-WebRequest -Uri "http://somesite.com/oneendpoint" -Method Post -Body $JSON 
-
 Read-Host ("Go to the ecobee portal and register for a new application with this PIN: {0}" -f $response.ecobeePin )
-
 
 $uri = ("{0}token?grant_type=ecobeePin&code={1}&client_id={2}" -f $BaseUri,$response.code,$ApiKey) 
 $uri
